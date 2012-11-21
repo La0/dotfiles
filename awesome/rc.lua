@@ -43,7 +43,7 @@ end
 beautiful.init("/home/lao/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "xterm"
 editor = "vi"
 editor_cmd = terminal .. " -e " .. editor
 
