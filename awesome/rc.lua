@@ -10,6 +10,9 @@ require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
+-- Load Vicious widgets
+vicious = require("vicious")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -93,9 +96,29 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
--- Create a textclock widget
 os.setlocale("fr_FR.UTF-8") -- Français
-mytextclock = awful.widget.textclock({ align = "right" }," %a %d %b  %H:%M ")
+
+
+-----------------
+-- Widgets
+----------------
+
+-- Date
+datewidget = widget({ type = "textbox" })
+vicious.register(datewidget, vicious.widgets.date, "%a %d %b  %H:%M ", 60)
+
+-- CPU
+cpuwidget = widget({ type = "textbox" })
+vicious.register(cpuwidget, vicious.widgets.cpu, "cpu:$1% ")
+
+-- Battery
+batwidget = widget({ type = "textbox"})
+vicious.register(batwidget, vicious.widgets.bat, "$2% ($3) ", 120, "BAT1")
+
+-- Memory
+memwidget = widget({ type = "textbox"})
+vicious.register(memwidget, vicious.widgets.mem, "mem:$1% ")
+
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -175,7 +198,10 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-        mytextclock,
+        datewidget,
+        memwidget,
+        cpuwidget,
+        batwidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -367,3 +393,4 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
