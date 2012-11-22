@@ -38,9 +38,20 @@ do
 end
 -- }}}
 
+-- Font
+awesome.font = "ProggyClean 10"
+
+-- Wallpaper setup
+-- wallpaper_app = "feh" -- if you want to check for app before trying
+-- wallpaper_dir = os.getenv("HOME") .. "/Wallpapers" -- wallpaper dir
+-- wallpaper_cmd = "find " .. wallpaper_dir .. " -type f -name '*.jpg'  -print0 | shuf -n1 -z | xargs -0 feh --bg-scale"
+-- os.execute(wallpaper_cmd)
+-- 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/lao/.config/awesome/theme.lua")
+configdir = awful.util.getdir("config")
+iconsdir = configdir .. "/icons"
+beautiful.init(configdir.."/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -104,20 +115,40 @@ os.setlocale("fr_FR.UTF-8") -- Français
 ----------------
 
 -- Date
+dateicon = widget({ type = "imagebox" })
+dateicon.image = image(iconsdir.."/date.png")
 datewidget = widget({ type = "textbox" })
 vicious.register(datewidget, vicious.widgets.date, "%a %d %b  %H:%M ", 60)
 
 -- CPU
+cpuicon = widget({ type = "imagebox" })
+cpuicon.image = image(iconsdir.."/processor.png")
 cpuwidget = widget({ type = "textbox" })
-vicious.register(cpuwidget, vicious.widgets.cpu, "cpu:$1% ")
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1% ")
 
 -- Battery
+baticon = widget({ type = "imagebox" })
+baticon.image = image(iconsdir.."/battery.png")
 batwidget = widget({ type = "textbox"})
 vicious.register(batwidget, vicious.widgets.bat, "$2% ($3) ", 120, "BAT1")
 
 -- Memory
+memicon = widget({ type = "imagebox" })
+memicon.image = image(iconsdir.."/memory.png")
 memwidget = widget({ type = "textbox"})
-vicious.register(memwidget, vicious.widgets.mem, "mem:$1% ")
+vicious.register(memwidget, vicious.widgets.mem, "$1% ")
+
+-- Volume
+volicon = widget({ type = "imagebox" })
+volicon.image = image(iconsdir.."/speaker.png")
+volwidget = widget({ type = "textbox" })
+vicious.register(volwidget, vicious.widgets.volume, "$1% ", 30, "Master")
+
+-- Wifi
+wifiicon = widget({ type = "imagebox" })
+wifiicon.image = image(iconsdir.."/wi-fi.png")
+wifiwidget = widget({ type = "textbox" })
+vicious.register(wifiwidget, vicious.widgets.wifi, "${ssid} ", 30, "wlan0")
 
 
 -- Create a systray
@@ -199,9 +230,17 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         datewidget,
+        dateicon,
         memwidget,
+        memicon,
         cpuwidget,
+        cpuicon,
         batwidget,
+        baticon,
+        wifiwidget,
+        wifiicon,
+        volwidget,
+        volicon,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
