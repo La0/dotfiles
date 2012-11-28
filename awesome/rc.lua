@@ -150,6 +150,19 @@ wifiicon.image = image(iconsdir.."/wi-fi.png")
 wifiwidget = widget({ type = "textbox" })
 vicious.register(wifiwidget, vicious.widgets.wifi, "${ssid} ", 30, "wlan0")
 
+-- Mpd
+-- Initialize widget
+mpdwidget = widget({ type = "textbox" })
+-- Register widget
+vicious.register(mpdwidget, vicious.widgets.mpd,
+    function (widget, args)
+        if args["{state}"] == "Stop" then 
+            return ""
+        else 
+            return args["{Artist}"]..' - '.. args["{Title}"]
+        end
+    end, 8)
+
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -239,6 +252,7 @@ for s = 1, screen.count() do
         baticon,
         wifiwidget,
         wifiicon,
+        mpdwidget,
         volwidget,
         volicon,
         s == 1 and mysystray or nil,
@@ -334,7 +348,16 @@ clientkeys = awful.util.table.join(
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
-        end)
+        end),
+
+  -- Media Keys
+  --- Sleep
+  awful.key({         }, "XF86Sleep", function () awful.util.spawn("sudo pm-suspend") end),
+
+  -- Next Song
+  awful.key({         }, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
+  awful.key({         }, "XF86AudioPrev", function () awful.util.spawn("mpc prev") end),
+  awful.key({         }, "XF86AudioPlay", function () awful.util.spawn("mpc toggle") end)
 )
 
 -- Compute the maximum number of digit we need, limited to 9
