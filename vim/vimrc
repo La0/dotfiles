@@ -5,6 +5,9 @@ set background=dark
 colorscheme molokai
 set nonu
 
+" Gui font
+set guifont=Monaco:h12
+
 " Encoding
 set encoding=utf8
 
