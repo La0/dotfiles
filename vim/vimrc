@@ -44,6 +44,11 @@ set tm=500
 " Use modern ctags
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
+" CtrlP configuration
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra' " start directory
+
 """"""""""""""""""""""""""
 " Commands mapping
 """"""""""""""""""""""""""
