@@ -41,6 +41,9 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" Don't use some files: pyc, zip, db, so
+set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store
+
 " Use modern ctags
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
