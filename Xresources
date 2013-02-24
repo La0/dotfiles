@@ -1,2 +1,3 @@
 xterm*boldMode: false
-XTerm*faceName: xft:Dejavu Sans Mono:pixelsize=12
+#XTerm*faceName: xft:Dejavu Sans Mono:pixelsize=12
+XTerm*faceName: xft:Inconsolata:pixelsize=12

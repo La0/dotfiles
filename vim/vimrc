@@ -1,3 +1,23 @@
+" Setup Vundle
+filetype off
+set nocompatible
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Enable filetype plugin
+filetype plugin on
+filetype indent on
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" My bundles
+Bundle 'scrooloose/nerdtree'
+Bundle 'ctrlp.vim'
+Bundle 'bufexplorer.zip'
+Bundle 'molokai'
+
 " Syntax
 syntax enable
 set t_Co=256
@@ -21,10 +41,6 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set smarttab
-
-" Enable filetype plugin
-filetype plugin on
-filetype indent on
 
 set paste
 set ignorecase "Ignore case when searching

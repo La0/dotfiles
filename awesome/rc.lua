@@ -39,7 +39,7 @@ end
 -- }}}
 
 -- Font
-awesome.font = "ProggyClean 10"
+-- awesome.font = "ProggyClean 10"
 
 -- Wallpaper setup
 -- wallpaper_app = "feh" -- if you want to check for app before trying
@@ -353,6 +353,7 @@ clientkeys = awful.util.table.join(
   -- Media Keys
   --- Sleep
   awful.key({         }, "XF86Sleep", function () awful.util.spawn("sudo pm-suspend") end),
+  awful.key({ modkey  }, "XF86Sleep", function () awful.util.spawn("sudo pm-hibernate") end),
 
   -- Next Song
   awful.key({         }, "XF86AudioNext", function () awful.util.spawn("mpc next") end),
