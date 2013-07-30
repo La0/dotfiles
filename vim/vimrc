@@ -2,7 +2,11 @@
 filetype off
 set nocompatible
 
-set rtp+=~/.vim/bundle/vundle/
+if has('win32')
+  set rtp+=$HOME/dotfiles/vim/bundle/vundle/
+else
+  set rtp+=~/.vim/bundle/vundle/
+endif
 call vundle#rc()
 
 " Enable filetype plugin
@@ -26,7 +30,8 @@ colorscheme molokai
 set nonu
 
 " Gui font
-set guifont=Monaco:h12
+set gfn=Consolas:h12:cANSI
+set guifont=Consolas:h12:cANSI
 
 " Encoding
 set encoding=utf8
