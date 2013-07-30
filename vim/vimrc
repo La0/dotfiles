@@ -2,6 +2,12 @@
 filetype off
 set nocompatible
 
+" allow switching between buffers without saving
+set hidden
+
+" Remap leader key to ,
+let mapleader = ","
+
 if has('win32')
   set rtp+=$HOME/dotfiles/vim/bundle/vundle/
 else
@@ -18,6 +24,7 @@ Bundle 'gmarik/vundle'
 
 " My bundles
 Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ctrlp.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'molokai'
@@ -73,12 +80,18 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra' " start directory
 
+" EasyMotion leader
+let g:EasyMotion_leader_key = '<Leader>'
+
 """"""""""""""""""""""""""
 " Commands mapping
 """"""""""""""""""""""""""
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 map <C-L> :TlistToggle<CR>
 
+" Will allow you to use :w!! to write to a file using sudo if you forgot to sudo
+" vim file (it will prompt for sudo password when writing)
+cmap w!! %!sudo tee > /dev/null %
 
 " Don't show pyc files in nerdtree
 let NERDTreeIgnore = ['\.pyc$']
