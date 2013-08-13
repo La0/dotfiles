@@ -29,6 +29,8 @@ Bundle 'ctrlp.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'molokai'
 Bundle 'bling/vim-airline'
+Bundle 'minibufexpl.vim'
+Bundle 'docunext/closetag.vim'
 
 " Enable airline
 set laststatus=2
@@ -67,11 +69,18 @@ set hlsearch "Highlight search things
 set showmatch "Show matching bracets when text indicator is over them
 set mat=2 "How many tenths of a second to blink
 
+" Buffers
+nmap <C-e> :e#<CR> "Quick buffer shift
+"nmap <C-Tab> :bnext<cr> "Switch to next buffer
+"nmap <C-S-Tab> :bprevious<cr> "Switch to previous buffer
+
 " No sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+"Split
 
 " Don't use some files: pyc, zip, db, so
 set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store
@@ -91,7 +100,6 @@ let g:EasyMotion_leader_key = '<Leader>'
 " Commands mapping
 """"""""""""""""""""""""""
 nmap <silent> <C-D> :NERDTreeToggle<CR>
-map <C-L> :TlistToggle<CR>
 
 " Will allow you to use :w!! to write to a file using sudo if you forgot to sudo
 " vim file (it will prompt for sudo password when writing)
@@ -104,3 +112,8 @@ let NERDTreeIgnore = ['\.pyc$']
 nnoremap <silent> <M-F12> :BufExplorer<CR>
 nnoremap <silent> <F12> :bn<CR>
 nnoremap <silent> <S-F12> :bp<CR>
+
+" Closetag
+autocmd FileType html let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+autocmd FileType html,xhtml,xml nmap <C-Tab> <C-_>
