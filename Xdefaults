@@ -1,0 +1,4 @@
+xterm*boldMode: false
+XTerm*faceName: xft:Dejavu Sans Mono:pixelsize=12
+XTerm*Background: black
+XTerm*Foreground: white
