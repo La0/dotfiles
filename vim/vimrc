@@ -28,6 +28,10 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ctrlp.vim'
 Bundle 'bufexplorer.zip'
 Bundle 'molokai'
+Bundle 'bling/vim-airline'
+
+" Enable airline
+set laststatus=2
 
 " Syntax
 syntax enable
