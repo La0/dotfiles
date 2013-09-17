@@ -31,6 +31,7 @@ Bundle 'molokai'
 Bundle 'bling/vim-airline'
 Bundle 'minibufexpl.vim'
 Bundle 'docunext/closetag.vim'
+Bundle 'EasyGrep'
 
 " Enable airline
 set laststatus=2
