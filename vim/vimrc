@@ -37,6 +37,7 @@ Bundle 'minibufexpl.vim'
 Bundle 'docunext/closetag.vim'
 Bundle 'EasyGrep'
 Bundle 'vimwiki/vimwiki'
+Bundle 'tpope/vim-fugitive'
 
 " Enable airline
 set laststatus=2
@@ -72,11 +73,17 @@ set smarttab
 set paste
 set ignorecase "Ignore case when searching
 set smartcase "Search case insensitive when typing in lowercase
+set incsearch " Jump to the next search result while still typing
+set scrolloff=4 " Force-scroll 4 lines before/after the cursor
+set laststatus=2 " Always show statusline
 
 set hlsearch "Highlight search things
 
 set showmatch "Show matching bracets when text indicator is over them
 set mat=2 "How many tenths of a second to blink
+set splitright " Open new splits on the right
+set splitbelow " Open new splits on the botto
+set relativenumber      " Relative line numbering
 
 " Buffers
 nmap <C-e> :e#<CR> "Quick buffer shift
