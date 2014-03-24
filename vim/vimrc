@@ -36,6 +36,7 @@ Bundle 'bling/vim-airline'
 Bundle 'minibufexpl.vim'
 Bundle 'docunext/closetag.vim'
 Bundle 'EasyGrep'
+Bundle 'vimwiki/vimwiki'
 
 " Enable airline
 set laststatus=2
@@ -46,6 +47,9 @@ set t_Co=256
 set background=dark
 colorscheme molokai
 set nonu
+
+" Line numbers
+set number
 
 " Gui font
 set gfn=Consolas:h12:cANSI
@@ -67,7 +71,7 @@ set smarttab
 
 set paste
 set ignorecase "Ignore case when searching
-set smartcase
+set smartcase "Search case insensitive when typing in lowercase
 
 set hlsearch "Highlight search things
 
@@ -122,3 +126,8 @@ nnoremap <silent> <S-F12> :bp<CR>
 autocmd FileType html let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 autocmd FileType html,xhtml,xml nmap <C-Tab> <C-_>
+
+" Path auto completion
+set wildmode=list:longest,list:full
+set wildmenu
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/,CVS*,*.pyc
