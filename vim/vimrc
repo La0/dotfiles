@@ -109,9 +109,6 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra' " start directory
 
-" EasyMotion leader
-let g:EasyMotion_leader_key = '<Leader>'
-
 """"""""""""""""""""""""""
 " Commands mapping
 """"""""""""""""""""""""""
@@ -138,3 +135,4 @@ autocmd FileType html,xhtml,xml nmap <C-Tab> <C-_>
 set wildmode=list:longest,list:full
 set wildmenu
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/,CVS*,*.pyc
+
