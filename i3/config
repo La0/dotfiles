@@ -152,3 +152,8 @@ bar {
 # Use Gnome daemon to handle multimedia keys
 exec --no-startup-id gnome-settings-daemon
 
+# Use network manager applet to connect to wifi
+exec --no-startup-id nm-applet
+
+# Spotify must float to avoid display bugs
+for_window [class="^Spotify$"] floating enable
