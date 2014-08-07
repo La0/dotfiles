@@ -14,4 +14,7 @@ virtualenvwrapper_setup_lazy_completion
 # Aliases
 alias pony="./manage.py runserver"
 alias rr="workon runreport && cd ~/dev/coach"
+alias calepin="workon calepin && cd ~/dev/calepin"
 
+# FFS
+export GIT_EDITOR="vim"
