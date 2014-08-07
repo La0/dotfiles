@@ -155,5 +155,8 @@ exec --no-startup-id gnome-settings-daemon
 # Use network manager applet to connect to wifi
 exec --no-startup-id nm-applet
 
+# Start redshift with Paris location
+exec --no-startup-id redshift-gtk -l 48.85341:2.3488
+
 # Spotify must float to avoid display bugs
 for_window [class="^Spotify$"] floating enable
