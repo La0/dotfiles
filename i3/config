@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $FnKey 151
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -160,3 +161,8 @@ exec --no-startup-id redshift-gtk -l 48.85341:2.3488
 
 # Spotify must float to avoid display bugs
 for_window [class="^Spotify$"] floating enable
+
+# Spotify control from Mod + (p, ^, $)
+bindsym $mod+p exec /home/lao/bin/spotify-remote playpause
+bindcode $mod+34 exec /home/lao/bin/spotify-remote previous
+bindcode $mod+35 exec /home/lao/bin/spotify-remote next
