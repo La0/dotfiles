@@ -30,6 +30,10 @@ function start_agent {
   chmod 600 "${SSH_ENV}"
   . "${SSH_ENV}" > /dev/null
   /usr/bin/ssh-add;
+  for key in $(ls ~/.ssh/*.key) ;
+  do
+    /usr/bin/ssh-add $key;
+  done
 }
 
 # Source SSH settings, if applicable
