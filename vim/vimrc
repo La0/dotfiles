@@ -103,7 +103,7 @@ set tm=500
 "Split
 
 " Don't use some files: pyc, zip, db, so
-set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store
+set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store,bower_components,node_modules
 
 " Use modern ctags
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
