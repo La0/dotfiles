@@ -88,7 +88,7 @@ bindsym $mod+q focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+ampersand workspace 1
+bindsym $mod+ampersand workspace 1: www
 bindsym $mod+eacute workspace 2
 bindsym $mod+quotedbl workspace 3
 bindsym $mod+apostrophe workspace 4
@@ -100,7 +100,7 @@ bindsym $mod+ccedilla workspace 9
 bindsym $mod+agrave workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+ampersand move container to workspace 1
+bindsym $mod+Shift+ampersand move container to workspace 1: www
 bindsym $mod+Shift+eacute move container to workspace 2
 bindsym $mod+Shift+quotedbl move container to workspace 3
 bindsym $mod+Shift+apostrophe move container to workspace 4
@@ -158,6 +158,16 @@ exec --no-startup-id nm-applet
 
 # Start redshift with Paris location
 exec --no-startup-id redshift-gtk -l 48.85341:2.3488
+
+# Start Bluetooth applet
+exec --no-startup-id blueman-applet
+
+# Background
+exec --no-startup-id feh --bg-scale /home/lao/Pictures/wallpaper-1996019.png
+
+# Lock screen
+bindcode $mod+21 exec dm-tool lock
+
 
 # Spotify must float to avoid display bugs
 for_window [class="^Spotify$"] floating enable
