@@ -20,12 +20,12 @@ filetype plugin on
 filetype indent on
 
 " Auto indent
-set filetype=html
+" set filetype=html
 set smartindent
 
 " Remove trailing whitespaces
 " for code files
-autocmd FileType c,cpp,php,python,css,html,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,php,python,css,html,javascript,less autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
@@ -42,6 +42,7 @@ Bundle 'docunext/closetag.vim'
 Bundle 'EasyGrep'
 Bundle 'vimwiki/vimwiki'
 Bundle 'tpope/vim-fugitive'
+Bundle 'groenewege/vim-less'
 
 " Enable airline
 set laststatus=2
@@ -52,6 +53,8 @@ set t_Co=256
 set background=dark
 colorscheme molokai
 set nonu
+filetype off
+filetype on
 
 " Line numbers
 set number
@@ -103,7 +106,8 @@ set tm=500
 "Split
 
 " Don't use some files: pyc, zip, db, so
-set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store,bower_components,node_modules
+set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store,bower_components,node_modules,garmin_data,tracks_data
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/,CVS*
 
 " Use modern ctags
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
@@ -138,5 +142,4 @@ autocmd FileType html,xhtml,xml nmap <C-Tab> <C-_>
 " Path auto completion
 set wildmode=list:longest,list:full
 set wildmenu
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/,CVS*,*.pyc
 
