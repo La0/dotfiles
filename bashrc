@@ -16,6 +16,7 @@ alias pony="./manage.py runserver"
 alias rr="workon runreport && cd ~/dev/coach"
 alias calepin="workon calepin && cd ~/dev/calepin"
 alias corpo="workon corporate && cd ~/dev/corporate"
+alias p4m="workon p4m && cd ~/dev/playlist4me"
 
 # FFS
 export GIT_EDITOR="vim"
