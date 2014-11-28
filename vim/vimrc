@@ -32,6 +32,7 @@ Bundle 'gmarik/vundle'
 
 " My bundles
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'ctrlp.vim'
 Bundle 'bufexplorer.zip'
@@ -106,7 +107,7 @@ set tm=500
 "Split
 
 " Don't use some files: pyc, zip, db, so
-set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store,bower_components,node_modules,garmin_data,tracks_data
+set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store,bower_components,node_modules,garmin_data,tracks_data,dist
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/,CVS*
 
 " Use modern ctags
@@ -143,3 +144,5 @@ autocmd FileType html,xhtml,xml nmap <C-Tab> <C-_>
 set wildmode=list:longest,list:full
 set wildmenu
 
+" Only use pyflakes for python syntax checks
+let g:syntastic_python_checkers = ['pyflakes']
