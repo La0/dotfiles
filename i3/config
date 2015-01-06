@@ -176,3 +176,10 @@ for_window [class="^Spotify$"] floating enable
 bindsym $mod+p exec /home/lao/bin/spotify-remote playpause
 bindcode $mod+34 exec /home/lao/bin/spotify-remote previous
 bindcode $mod+35 exec /home/lao/bin/spotify-remote next
+
+#bindsym $mod+p exec ncmpcpp toggle
+#bindcode $mod+34 exec ncmpcpp previous
+#bindcode $mod+35 exec ncmpcpp next
+
+# Lock screen
+bindsym $mod+Shift+o exec dm-tool lock
