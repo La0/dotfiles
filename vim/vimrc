@@ -44,6 +44,7 @@ Bundle 'EasyGrep'
 Bundle 'vimwiki/vimwiki'
 Bundle 'tpope/vim-fugitive'
 Bundle 'groenewege/vim-less'
+Bundle 'jamessan/vim-gnupg'
 
 " Enable airline
 set laststatus=2
