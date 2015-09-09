@@ -13,7 +13,7 @@ virtualenvwrapper_setup_lazy_completion
 
 # Aliases
 alias pony="./manage.py runserver"
-alias rr="workon runreport && cd ~/dev/coach"
+alias rr="workon runreport && cd ~/dev/runreport/coach"
 alias calepin="workon calepin && cd ~/dev/calepin"
 alias corpo="workon corporate && cd ~/dev/corporate"
 alias p4m="workon p4m && cd ~/dev/playlist4me"
@@ -53,3 +53,18 @@ fi
 if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
+
+# Used by OpenEDX vagrant image
+export VAGRANT_USE_VBOXFS=true
+
+# Svn Helpers
+svndiff() {
+  svn diff "${@}" | colordiff
+} 
+
+# For vim-gnupg
+GPG_TTY=`tty`
+export GPG_TTY 
+
+# No cows in ansible !
+export ANSIBLE_NOCOWS=1
