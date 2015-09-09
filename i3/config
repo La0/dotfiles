@@ -163,14 +163,28 @@ exec --no-startup-id redshift-gtk -l 48.85341:2.3488
 exec --no-startup-id blueman-applet
 
 # Background
-exec --no-startup-id feh --bg-scale /home/lao/Pictures/wallpaper-1996019.png
+exec --no-startup-id feh --bg-scale /home/lao/Pictures/wallpaper.jpg
+
+# Owncloud
+exec --no-startup-id owncloud
 
 # Lock screen
 bindcode $mod+21 exec dm-tool lock
 
+# Virtualbox is floating
+for_window [class="^Oracle VM VirtualBox"] floating enable
 
 # Spotify must float to avoid display bugs
 for_window [class="^Spotify$"] floating enable
+
+# Terms are with thin borders, no title
+for_window [class=".*-terminal"] border pixel 1
+
+# Firefox is without borders
+for_window [class="Firefox"] border pixel 0
+
+# Spotify is without borders
+for_window [class="spotify"] border pixel 0
 
 # Spotify control from Mod + (p, ^, $)
 bindsym $mod+p exec /home/lao/bin/spotify-remote playpause
@@ -183,3 +197,7 @@ bindcode $mod+35 exec /home/lao/bin/spotify-remote next
 
 # Lock screen
 bindsym $mod+Shift+o exec dm-tool lock
+
+# Move workspaces between screens
+bindsym $mod+y move workspace to output left
+bindsym $mod+u move workspace to output right
