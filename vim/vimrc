@@ -56,7 +56,7 @@ set laststatus=2
 syntax enable
 set t_Co=256
 set background=dark
-colorscheme molokai
+silent! colorscheme molokai
 set nonu
 filetype off
 filetype on
