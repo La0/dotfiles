@@ -177,6 +177,9 @@ for_window [class="^Oracle VM VirtualBox"] floating enable
 # Spotify must float to avoid display bugs
 for_window [class="^Spotify$"] floating enable
 
+# Wine must float to avoid display bugs
+for_window [class="^Wine$"] floating enable
+
 # Terms are with thin borders, no title
 for_window [class=".*-terminal"] border pixel 1
 
