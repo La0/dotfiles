@@ -71,3 +71,8 @@ export GPG_TTY
 
 # No cows in ansible !
 export ANSIBLE_NOCOWS=1
+
+# Nix OS
+if [[ -d ~/.nix-profile ]] ; then
+  source ~/.nix-profile/etc/profile.d/nix.sh
+fi
