@@ -4,7 +4,8 @@
 
 [user]
   name = Bastien Abadie
-  email = bastien.abadie@gmail.com
+  email = bastien@nextcairn.com
+	signingkey = F5F60CAA5BB69CAA
 
 [color]
   ui = true
