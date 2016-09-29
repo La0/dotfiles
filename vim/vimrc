@@ -45,6 +45,9 @@ Bundle 'vimwiki/vimwiki'
 Bundle 'tpope/vim-fugitive'
 Bundle 'groenewege/vim-less'
 Bundle 'jamessan/vim-gnupg'
+Bundle 'rust-lang/rust.vim'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'lambdatoast/elm.vim'
 
 " Enable airline
 set laststatus=2
@@ -108,7 +111,7 @@ set tm=500
 "Split
 
 " Don't use some files: pyc, zip, db, so
-set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store,bower_components,node_modules,garmin_data,tracks_data,dist
+set wildignore+=*.pyc,*.so,*.db,*.zip,.DS_Store,bower_components,node_modules,elm-stuf,garmin_data,tracks_data,dist
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/,CVS*
 
 " Use modern ctags
@@ -147,3 +150,12 @@ set wildmenu
 
 " Only use pyflakes for python syntax checks
 let g:syntastic_python_checkers = ['pyflakes']
+
+" Disable folding for markdown
+let g:vim_markdown_folding_disabled = 1
+
+" Load Floobits for NeoVim
+if has('nvim')
+  Bundle 'floobits/floobits-neovim'
+
+endif
