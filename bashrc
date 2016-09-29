@@ -3,17 +3,20 @@ export TERMINAL=xterm
 # Custom PS1 prompt
 # displaying git branch
 source /etc/bash_completion.d/git-prompt
-DAGGER=$'\xe2\x9a\x94'
-PS1="$DAGGER\[\033[32m\]\u:\w\[\033[0m\]\$(__git_ps1) \$\[\033[0m\] "
+#PS1="\[\033[32m\]\u@\h:\w\[\033[0m\]\$(__git_ps1) \$\[\033[0m\] "
+export PS1="\[\033[38;5;39m\]\u\[$(tput sgr0)\]\[\033[38;5;8m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;8m\]:\[$(tput sgr0)\]\[\033[38;5;34m\]\w\[\033[38;5;222m\]\$(__git_ps1) \[$(tput sgr0)\]"
 
 # Configure Virtualen wrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export WORKON_HOME=~/Envs
 export PROJECT_HOME=~/dev
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 virtualenvwrapper_setup_lazy_completion
 
 # Aliases
 alias pony="./manage.py runserver"
-alias rr="workon runreport && cd ~/dev/runreport/coach"
+alias rr="workon runreport && cd ~/dev/runreport/app/src"
 alias calepin="workon calepin && cd ~/dev/calepin"
 alias corpo="workon corporate && cd ~/dev/corporate"
 alias p4m="workon p4m && cd ~/dev/playlist4me"
