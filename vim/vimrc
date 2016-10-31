@@ -48,6 +48,7 @@ Bundle 'jamessan/vim-gnupg'
 Bundle 'rust-lang/rust.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'lambdatoast/elm.vim'
+Bundle 'posva/vim-vue'
 
 " Enable airline
 set laststatus=2
