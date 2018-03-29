@@ -47,7 +47,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'jamessan/vim-gnupg'
 Bundle 'rust-lang/rust.vim'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'lambdatoast/elm.vim'
+Bundle 'elmcast/elm-vim'
 Bundle 'posva/vim-vue'
 
 " Enable airline
@@ -78,10 +78,7 @@ set nowb
 set noswapfile
 
 " Tabs
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 set paste
 set ignorecase "Ignore case when searching
@@ -158,5 +155,12 @@ let g:vim_markdown_folding_disabled = 1
 " Load Floobits for NeoVim
 if has('nvim')
   Bundle 'floobits/floobits-neovim'
+
+" Elm formatting on save
+let g:elm_format_autosave = 0
+let g:elm_make_show_warnings = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:elm_syntastic_show_warnings = 0
 
 endif

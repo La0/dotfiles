@@ -72,8 +72,8 @@ bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+z layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -172,6 +172,9 @@ for_window [class="^Oracle VM VirtualBox"] floating enable
 for_window [class="^Spotify$"] floating enable
 for_window [class="^VidyoDesktop$"] floating enable
 
+# Vidyo must float to avoid display bugs
+for_window [class="^VidyoDesktop$"] floating enable
+
 # Wine must float to avoid display bugs
 for_window [class="^Wine$"] floating enable
 
@@ -180,6 +183,7 @@ for_window [class=".*-terminal"] border pixel 1
 
 # Firefox is without borders
 for_window [class="Firefox"] border pixel 0
+for_window [class="Nightly"] border pixel 0
 
 # Spotify is without borders
 for_window [class="spotify"] border pixel 0
@@ -188,6 +192,11 @@ for_window [class="spotify"] border pixel 0
 bindsym $mod+p exec /home/lao/bin/spotify-remote playpause
 bindcode $mod+34 exec /home/lao/bin/spotify-remote previous
 bindcode $mod+35 exec /home/lao/bin/spotify-remote next
+
+# Volume control from Mod + (a, z, e)
+bindsym $mod+a exec pactl set-sink-volume 0 -10%
+bindsym $mod+z exec pactl set-sink-volume 0 +10%
+bindsym $mod+e exec pactl set-sink-mute 0 toggle
 
 #bindsym $mod+p exec ncmpcpp toggle
 #bindcode $mod+34 exec ncmpcpp previous
