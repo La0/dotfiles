@@ -147,7 +147,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status -c ~/.i3/status.conf
+        status_command i3status -c ~/dotfiles/i3/status.conf
 }
 
 # Use network manager applet to connect to wifi
@@ -160,10 +160,13 @@ exec --no-startup-id redshift-gtk -l 48.85341:2.3488
 #exec --no-startup-id blueman-applet
 
 # Background
-exec --no-startup-id feh --bg-scale /home/lao/Pictures/wallpaper.jpg
+exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.jpg
+
+# Touchpad tap
+exec xinput set-prop 11 283 1
 
 # Lock screen
-bindcode $mod+21 exec dm-tool lock
+bindcode $mod+21 exec i3lock -i $HOME/Pictures/lock.png
 
 # Virtualbox is floating
 for_window [class="^Oracle VM VirtualBox"] floating enable
@@ -180,6 +183,7 @@ for_window [class="^Wine$"] floating enable
 
 # Terms are with thin borders, no title
 for_window [class=".*-terminal"] border pixel 1
+for_window [class="Alacritty"] border pixel 1
 
 # Firefox is without borders
 for_window [class="Firefox"] border pixel 0
@@ -189,9 +193,9 @@ for_window [class="Nightly"] border pixel 0
 for_window [class="spotify"] border pixel 0
 
 # Spotify control from Mod + (p, ^, $)
-bindsym $mod+p exec /home/lao/bin/spotify-remote playpause
-bindcode $mod+34 exec /home/lao/bin/spotify-remote previous
-bindcode $mod+35 exec /home/lao/bin/spotify-remote next
+bindsym $mod+p exec $HOME/bin/spotify-remote playpause
+bindcode $mod+34 exec $HOME/bin/spotify-remote previous
+bindcode $mod+35 exec $HOME/bin/spotify-remote next
 
 # Volume control from Mod + (a, z, e)
 bindsym $mod+a exec pactl set-sink-volume 0 -10%
@@ -203,17 +207,17 @@ bindsym $mod+e exec pactl set-sink-mute 0 toggle
 #bindcode $mod+35 exec ncmpcpp next
 
 # Lock screen
-bindsym $mod+Shift+o exec dm-tool lock
+bindsym $mod+Shift+o exec i3lock -i $HOME/Pictures/lock.png
 
 # Move workspaces between screens
 bindsym $mod+y move workspace to output left
 bindsym $mod+u move workspace to output right
 
 # Multimedia keys
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
-bindsym XF86MicMute exec pactl set-sink-input-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86MicMute exec pactl set-sink-input-mute 1 toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
