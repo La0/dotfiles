@@ -166,7 +166,7 @@ exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.jpg
 exec xinput set-prop 11 283 1
 
 # Lock screen
-bindcode $mod+21 exec i3lock -i $HOME/Pictures/lock.png
+#bindcode $mod+21 exec i3lock -i $HOME/Pictures/lock.png
 
 # Virtualbox is floating
 for_window [class="^Oracle VM VirtualBox"] floating enable
