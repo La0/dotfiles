@@ -1,0 +1,41 @@
+[ui]
+username = Bastien Abadie <bastien@mozilla.com>
+tweakdefaults = true
+interface = curses
+[diff]
+git = true
+showfunc = true
+[extensions]
+shelve = 
+strip = 
+absorb = 
+purge =
+histedit = 
+rebase = 
+firefoxtree = /home/bastien/.mozbuild/version-control-tools/hgext/firefoxtree
+clang-format = /home/bastien/.mozbuild/version-control-tools/hgext/clang-format
+js-format = /home/bastien/.mozbuild/version-control-tools/hgext/js-format
+push-to-try = /home/bastien/.mozbuild/version-control-tools/hgext/push-to-try
+#push-to-try = /home/bastien/.mozbuild/version-control-tools/hgext/push-to-try
+#hgmo = /home/bastien/dev/mozilla/version-control-tools/hgext/hgmo
+#pushlog = /home/bastien/dev/mozilla/version-control-tools/hgext/pushlog
+#robustcheckout = /home/bastien/dev/mozilla/version-control-tools/hgext/robustcheckout
+[alias]
+wip = log --graph --rev=wip --template=wip
+[revsetalias]
+wip = (parents(not public()) or not public() or . or (head() and branch(default))) and (not obsolete() or orphan()^) and not closed() and not (fxheads() - date(-90))
+[templates]
+wip = '{label("wip.branch", if(branches,"{branches} "))}{label(ifeq(graphnode,"x","wip.obsolete","wip.{phase}"),"{rev}:{node|short}")}{label("wip.user", " {author|user}")}{label("wip.tags", if(tags," {tags}"))}{label("wip.tags", if(fxheads," {fxheads}"))}{if(bookmarks," ")}{label("wip.bookmarks", if(bookmarks,bookmarks))}{label(ifcontains(rev, revset("parents()"), "wip.here"), " {desc|firstline}")}'
+[color]
+wip.bookmarks = yellow underline
+wip.branch = yellow
+wip.draft = green
+wip.here = red
+wip.obsolete = none
+wip.public = blue
+wip.tags = yellow
+wip.user = magenta
+[experimental]
+graphshorten = true
+[rebase]
+experimental.inmemory = yes
