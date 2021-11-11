@@ -150,3 +150,6 @@ export GPG_TTY
 
 # No cows in ansible !
 export ANSIBLE_NOCOWS=1
+
+# For arkindex local dev
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
